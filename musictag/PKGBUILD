@@ -1,0 +1,28 @@
+pkgname="musictag"
+pkgver=0.2
+pkgrel=1
+pkgdesc="Mofify music tag with ID3v2.4"
+license=("GPLv3")
+url="https://github.com/Huzerovo/musictag"
+arch=('x86_64')
+source=(
+  "git+https://github.com/Huzerovo/musictag.git"
+)
+sha256sums=(
+  "SKIP"
+)
+depends=("taglib")
+makedepends=('make' 'clang')
+
+build() {
+  cd "$srcdir/$pkgname"
+  make build
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -D -t "$pkgdir/usr/bin" build/musictag
+  install -D -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE
+}
+
+# vim: ts=2 sts=2 sw=2

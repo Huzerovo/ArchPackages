@@ -1,0 +1,9 @@
+[Unit]
+Description=Disable Intel BD PROCHOT
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/disable_BD_PROCHOT
+
+[Install]
+WantedBy=multi-user.target

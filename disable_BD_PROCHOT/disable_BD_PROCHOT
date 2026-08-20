@@ -1,0 +1,19 @@
+#!/bin/env sh
+
+die() {
+    echo "$@" 1>&2
+    exit 1
+}
+
+which rdmsr > /dev/null || die "Can not find command 'rdmsr'."
+which wrmsr > /dev/null || die "Can not find command 'wrmsr'."
+
+MSR_VALUE="0x$(rdmsr 0x1FC 2> /dev/null)" 
+
+if [ -z "$MSR_VALUE" ]; then
+    die "Failed to get MSR value."
+fi
+
+wrmsr 0x1FC "$((MSR_VALUE & ~1))" || die "Failed to write value to MSR."
+
+echo "BD PROCHOT disabled."

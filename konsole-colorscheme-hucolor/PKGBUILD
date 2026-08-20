@@ -1,0 +1,23 @@
+# Maintainer: Huzerovo <huzerovo@outlook.com>
+
+pkgname=konsole-colorscheme-hucolor
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="Hucolor theme for Konsole"
+arch=("any")
+url="https://github.com/Huzerovo/hucolor"
+license=('MIT')
+depends=('konsole')
+source=(
+  'hucolor-dark.colorscheme'
+  'hucolor-light.colorscheme'
+)
+
+sha256sums=(
+'f280530d6c18093d93f17d43814556f2c4b3a4b0e4456102cde5bacaeeeb731c'
+'2249e26a8b31c2ce14f1ff59364b8c389cbe253376f1e654b4adf5572784fff0'
+)
+
+package() {
+  install -D -t"$pkgdir/usr/share/konsole" -m644 *.colorscheme
+}

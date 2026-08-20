@@ -1,0 +1,30 @@
+# Maintainer: huzerovo <huzerovo@outlook.com>
+
+pkgname=hulog
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="A blog generator"
+arch=('any')
+url="https://github.com/Huzerovo/$pkgname"
+license=('GPLv3')
+depends=('nodejs')
+makedepends=('npm')
+source=('git+https://github.com/Huzerovo/hulog.git')
+sha256sums=("SKIP")
+
+build() {
+  cd "$srcdir/$pkgname"
+  npm install
+  npm run build
+
+  cd "$srcdir"
+  tar -czf "$srcdir/$pkgname-$pkgver-$pkgrel.tgz" \
+    "$pkgname/node_modules" \
+    "$pkgname/packages/cli" \
+    "$pkgname/packages/core"
+
+}
+
+package() {
+  npm install --global --prefix "$pkgdir/usr" --cache "$srcdir/npm-cache" "$srcdir/$pkgname"
+}

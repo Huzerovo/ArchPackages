@@ -1,0 +1,21 @@
+pkgname="disable-BD-PROCHOT"
+pkgver="0.1"
+pkgrel="1"
+pkgdesc="Disable Intel BD PROCHOT"
+source=(
+  "disable_BD_PROCHOT"
+  "disable_BD_PROCHOT.service"
+)
+md5sums=(
+  "67e7eb77d50df32804553cac38507b61"
+  "ed1b971e49a66f902007a165feb4acc8"
+)
+arch=("x86_64")
+depends=("msr-tools")
+
+package() {
+    cd "$srcdir"
+    install -D -t "$pkgdir/usr/lib/systemd/system" disable_BD_PROCHOT.service
+    install -D -t "$pkgdir/usr/bin" disable_BD_PROCHOT
+}
+
