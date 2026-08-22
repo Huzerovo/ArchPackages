@@ -1,7 +1,7 @@
 # Maintainer: Huzerovo <huzerovo@outlook.com>
 
 pkgname=konsole-colorscheme-hucolor
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="Hucolor theme for Konsole"
 arch=("any")
@@ -14,8 +14,8 @@ source=(
 )
 
 sha256sums=(
-'f280530d6c18093d93f17d43814556f2c4b3a4b0e4456102cde5bacaeeeb731c'
-'2249e26a8b31c2ce14f1ff59364b8c389cbe253376f1e654b4adf5572784fff0'
+'476a3ccc504d6fcaac146782c711ec2e38ec3d3921ce77c2242af28556706e59'
+'a41e396a7e1c738e8cabf45c815042ee24750f070fc78d1a035037a38925a43d'
 )
 
 package() {

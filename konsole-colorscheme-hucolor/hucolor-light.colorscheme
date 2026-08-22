@@ -35,22 +35,22 @@ Color=46,158,68
 Color=46,158,68
 
 [Color11]
-Color=217,138,0
+Color=217,88,46
 
 [Color11Faint]
-Color=217,138,0
+Color=217,88,46
 
 [Color11Intense]
-Color=217,138,0
+Color=217,88,46
 
 [Color12]
-Color=61,79,196
+Color=47,63,174
 
 [Color12Faint]
-Color=61,79,196
+Color=47,63,174
 
 [Color12Intense]
-Color=61,79,196
+Color=47,63,174
 
 [Color13]
 Color=125,111,184
@@ -149,13 +149,13 @@ Color=51,51,51
 Color=51,51,51
 
 [Color9]
-Color=217,88,46
+Color=173,61,99
 
 [Color9Faint]
-Color=217,88,46
+Color=173,61,99
 
 [Color9Intense]
-Color=217,88,46
+Color=173,61,99
 
 [Foreground]
 Color=51,51,51
