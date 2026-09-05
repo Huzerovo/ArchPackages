@@ -1,0 +1,36 @@
+pkgname=AriaNg-AllInOne
+pkgver=1.3.14
+pkgrel=1
+pkgdesc="AriaNg, a modern web frontend making aria2 easier to use."
+arch=('any')
+url="https://github.com/mayswind/AriaNg"
+license=("MIT")
+source=(
+  "$url/releases/download/$pkgver/AriaNg-$pkgver-AllInOne.zip"
+  "https://raw.githubusercontent.com/mayswind/AriaNg/refs/heads/master/src/favicon.ico"
+  "https://raw.githubusercontent.com/mayswind/AriaNg/refs/heads/master/src/touchicon.png"
+  "https://raw.githubusercontent.com/mayswind/AriaNg/refs/heads/master/src/tileicon.png"
+  "https://raw.githubusercontent.com/mayswind/AriaNg/refs/heads/master/src/favicon.png"
+  "AriaNg-AllInOne.desktop"
+)
+sha256sums=(
+  "65bc5ed3573ef05313ea953a5c5363c8b33a4996849b2986c78660eab1a9edb2"
+  "161f0a897febe13f34df6e0a7e8ad3ba12889d90a71ca8a3bbac0875075098fb"
+  "e6f3e1b579f76d414640fc6c1582f69b3c032f0afe9ec06d2184125cdd4f7d7f"
+  "056b4f4276391d3b619958eb6c33ad9e957f571db82057ddd2c00ebffc75cfb5"
+  "3fd8ef3c9d064084f50a251431b5592a2e9b31326b87793c88c9ae9a4c7e265a"
+  "a943efa9c7af631451ad89530fcf080d4995fc9a72fb5038732746206ab28be0"
+)
+
+package() {
+  cd "$srcdir"
+  install -Dm 644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/" 
+  install -Dm 644 index.html -t "$pkgdir/usr/share/$pkgname/"
+  install -Dm 644 favicon.ico -t "$pkgdir/usr/share/$pkgname/"
+
+  install -Dm 644 favicon.png "${pkgdir}/usr/share/icons/hicolor/32x32/apps/${pkgname}.png"
+  install -Dm 644 touchicon.png "${pkgdir}/usr/share/icons/hicolor/114x114/apps/${pkgname}.png"
+  install -Dm 644 tileicon.png "${pkgdir}/usr/share/icons/hicolor/144x144/apps/${pkgname}.png"
+
+  install -Dm 644 AriaNg-AllInOne.desktop "$pkgdir/usr/share/applications/${pkgname}.desktop"
+}

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Categories=Network;
+Name=AriaNg-AllInOne
+Exec=/usr/bin/xdg-open /usr/share/AriaNg-AllInOne/index.html
+Icon=AriaNg-AllInOne
