@@ -1,30 +1,24 @@
 # Maintainer: huzerovo <huzerovo@outlook.com>
 
-pkgname=hulog
-pkgver=0.0.1
+pkgname=hulog-cli
+pkgver=0.1.6
 pkgrel=1
 pkgdesc="A blog generator"
 arch=('any')
 url="https://github.com/Huzerovo/$pkgname"
-license=('GPLv3')
+license=('MIT')
 depends=('nodejs')
 makedepends=('npm')
-source=('git+https://github.com/Huzerovo/hulog.git')
-sha256sums=("SKIP")
-
-build() {
-  cd "$srcdir/$pkgname"
-  npm install
-  npm run build
-
-  cd "$srcdir"
-  tar -czf "$srcdir/$pkgname-$pkgver-$pkgrel.tgz" \
-    "$pkgname/node_modules" \
-    "$pkgname/packages/cli" \
-    "$pkgname/packages/core"
-
-}
+source=("https://registry.npmjs.org/@hulog/cli/-/cli-$pkgver.tgz")
+sha256sums=("f1b49bfe1569ffcf45a369b913e43f8e22cfdee79a1deb75f5081582fea21448")
 
 package() {
-  npm install --global --prefix "$pkgdir/usr" --cache "$srcdir/npm-cache" "$srcdir/$pkgname"
+  npm install --global --prefix  "$pkgdir/usr" --cache  "$srcdir/npm-cache" "$srcdir/cli-$pkgver.tgz"
+  license_file="package/LICENSE"
+  tar xzf "$srcdir/cli-$pkgver.tgz" "$license_file"
+  install -Dm644 "$license_file" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+  find "$pkgdir/usr" -type d -exec chmod 755 {} +
+
+  chown --recursive root:root "${pkgdir}"
 }
